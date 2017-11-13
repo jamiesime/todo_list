@@ -65,8 +65,6 @@ public class Task {
         return type;
     }
 
-
-
     public boolean isComplete() {
         return complete;
     }
@@ -111,7 +109,7 @@ public class Task {
     }
 
     public static DeedType typeToDeedType(String type){
-        for (DeedType value : DeedType.values().){
+        for (DeedType value : DeedType.values()){
             if (value.getName().equals(type)){
                 return DeedType.valueOf(type);
 
@@ -128,7 +126,7 @@ public class Task {
             return false;
         }
     }
-    
+
     public void save(){
         String sql = String.format("INSERT INTO tasks (title, due_date, details, priority, type, complete) VALUES ('%s', '%s', '%s', '%s', '%s', '%s')", this.title, this.getDate(), this.details, this.getPriority().getName(), this.getType().getName(), this.isCompleteToString());
         this.id = SqlRunner.executeUpdate(sql);
@@ -172,9 +170,7 @@ public class Task {
         } finally {
             SqlRunner.closeConnection();
         }
-
         return tasks;
     }
-
 
 }
