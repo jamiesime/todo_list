@@ -12,6 +12,7 @@ public class Task {
     private Date date;
     private String details;
     private Priority priority;
+    private DeedType type;
     private boolean complete;
 
     public String getTitle() {
