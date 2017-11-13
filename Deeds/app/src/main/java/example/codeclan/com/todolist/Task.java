@@ -1,8 +1,7 @@
 package example.codeclan.com.todolist;
 
 
-import java.util.Date;
-import example.codeclan.com.todolist.db.SqlRunner;
+import db.SqlRunner;
 
 
 /**
@@ -66,12 +65,12 @@ public class Task {
         return complete;
     }
 
-    public int isCompleteToInt(){
+    public String isCompleteToString(){
         if (complete){
-            return 1;
+            return "true";
         }
         else {
-            return 0;
+            return "false";
         }
     }
 
@@ -97,7 +96,7 @@ public class Task {
 
 
     public void save(){
-        String sql = String.format("INSERT INTO tasks (title, due_date, details, priority, type, complete) VALUES ('%s', '%s', '%s', '%s', '%s', '%i')", this.title, this.getDate(), this.details, this.getPriority().getName(), this.getType().getName(), this.isCompleteToInt());
+        String sql = String.format("INSERT INTO tasks (title, due_date, details, priority, type, complete) VALUES ('%s', '%s', '%s', '%s', '%s', '%s')", this.title, this.getDate(), this.details, this.getPriority().getName(), this.getType().getName(), this.isCompleteToString());
         this.id = SqlRunner.executeUpdate(sql);
         SqlRunner.closeConnection();
     }

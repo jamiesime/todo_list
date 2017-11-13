@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/user/.gradle/caches/modules-2/files-2.1/org.xerial/sqlite-jdbc/3.16.1/72540738ecee65b58ef5a6dbc125e83223716b17/sqlite-jdbc-3.16.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="72540738ecee65b58ef5a6dbc125e83223716b17">
+        <dex dex="/Users/user/codeclan_work/todo_list/Deeds/app/build/intermediates/pre-dexed/debug/sqlite-jdbc-3.16.1_274348ad4456869606a581c4c1de7c2bd1f27e5f.jar" />
+    </item>
+
+</items>
