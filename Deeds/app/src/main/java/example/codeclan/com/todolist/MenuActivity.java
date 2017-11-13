@@ -14,7 +14,22 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void navToCreate(View button){
-        Intent i = new Intent (this, CreateActivity.class);
+        Intent i = new Intent (this, activity_create.class);
+        startActivity(i);
+    }
+
+    public void navToSearch(View button){
+        Intent i = new Intent (this, activity_search.class);
+        startActivity(i);
+    }
+
+    public void navToList(View button){
+        Intent i = new Intent (this, activity_list.class);
+        startActivity(i);
+    }
+
+    public void navToInfo(View button){
+        Intent i = new Intent (this, activity_info.class);
         startActivity(i);
     }
 }
