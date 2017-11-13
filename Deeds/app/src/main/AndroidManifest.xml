@@ -20,7 +20,6 @@
         <activity android:name=".activity_search" />
         <activity android:name=".activity_list" />
         <activity android:name=".activity_info" />
-        <activity android:name=".activity_deed_list"></activity>
     </application>
 
 </manifest>

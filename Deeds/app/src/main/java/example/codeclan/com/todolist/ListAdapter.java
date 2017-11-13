@@ -26,8 +26,8 @@ public class ListAdapter extends ArrayAdapter<Task> {
         Task currentTask = getItem(position);
         TextView taskTitle = (TextView) listItemView.findViewById(R.id.title);
         TextView taskDate = (TextView) listItemView.findViewById(R.id.date);
-        taskTitle.setText(currentTask.getTitle().toString());
-        taskDate.setText(currentTask.getDate().toString());
+        taskTitle.setText(currentTask.getTitle());
+        taskDate.setText(currentTask.getDate());
 
 
         listItemView.setTag(currentTask);

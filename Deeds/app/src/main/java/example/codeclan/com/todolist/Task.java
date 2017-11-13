@@ -151,6 +151,12 @@ public class Task {
         SqlRunner.closeConnection();
     }
 
+    public static ArrayList<Task> allTasks(){
+        String sql = String.format("SELECT * FROM tasks;");
+        ResultSet rs = SqlRunner.executeQuery(sql);
+        return map(rs);
+    }
+
     public static ArrayList<Task> map(ResultSet rs){
         ArrayList<Task> tasks = new ArrayList<>();
         try {
