@@ -11,7 +11,7 @@ public class Seeds {
 
     public static void seedTasks() {
 
-        Task deed1 = new Task("clean room", new Date(), "gotta get the room nice and clean", Priority.ESSENTIAL, DeedType.TEST, true);
+        Task deed1 = new Task("clean room", "2017-12-12", "gotta get the room nice and clean", Priority.ESSENTIAL, DeedType.TEST, true);
 
         deed1.save();
 

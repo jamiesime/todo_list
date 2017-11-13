@@ -14,14 +14,14 @@ public class Task {
 
     private int id;
     private String title;
-    private Date date;
+    private String date;
     private String details;
     private Priority priority;
     private DeedType type;
     private boolean complete;
 
 
-    public Task(int id, String title, Date date, String details, Priority priority, DeedType type, boolean complete) {
+    public Task(int id, String title, String date, String details, Priority priority, DeedType type, boolean complete) {
         this.id = id;
         this.title = title;
         this.date = date;
@@ -31,7 +31,7 @@ public class Task {
         this.complete = complete;
     }
 
-    public Task(String title, Date date, String details, Priority priority, DeedType type, boolean complete) {
+    public Task(String title, String date, String details, Priority priority, DeedType type, boolean complete) {
         this.title = title;
         this.date = date;
         this.details = details;
@@ -44,7 +44,7 @@ public class Task {
         return title;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -66,11 +66,20 @@ public class Task {
         return complete;
     }
 
+    public int isCompleteToInt(){
+        if (complete){
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -88,10 +97,9 @@ public class Task {
 
 
     public void save(){
-        String sql = String.format("INSERT INTO deeds (title, date, details, priority, type, complete) VALUES ('%s', '%s', '%s', '%s', '%s', '%i')", this.title, this.getDate(), this.details, this.getPriority().getName(), this.getType().getName(), this.isComplete());
+        String sql = String.format("INSERT INTO tasks (title, due_date, details, priority, type, complete) VALUES ('%s', '%s', '%s', '%s', '%s', '%i')", this.title, this.getDate(), this.details, this.getPriority().getName(), this.getType().getName(), this.isCompleteToInt());
         this.id = SqlRunner.executeUpdate(sql);
         SqlRunner.closeConnection();
-
     }
-    
+
 }
