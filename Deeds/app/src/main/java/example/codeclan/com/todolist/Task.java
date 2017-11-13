@@ -1,6 +1,9 @@
 package example.codeclan.com.todolist;
 
+
 import java.util.Date;
+import example.codeclan.com.todolist.db.SqlRunner;
+
 
 /**
  * Created by user on 12/11/2017.
@@ -8,12 +11,34 @@ import java.util.Date;
 
 public class Task {
 
+
+    private int id;
     private String title;
     private Date date;
     private String details;
     private Priority priority;
     private DeedType type;
     private boolean complete;
+
+
+    public Task(int id, String title, Date date, String details, Priority priority, DeedType type, boolean complete) {
+        this.id = id;
+        this.title = title;
+        this.date = date;
+        this.details = details;
+        this.priority = priority;
+        this.type = type;
+        this.complete = complete;
+    }
+
+    public Task(String title, Date date, String details, Priority priority, DeedType type, boolean complete) {
+        this.title = title;
+        this.date = date;
+        this.details = details;
+        this.priority = priority;
+        this.type = type;
+        this.complete = complete;
+    }
 
     public String getTitle() {
         return title;
@@ -30,6 +55,12 @@ public class Task {
     public Priority getPriority() {
         return priority;
     }
+
+    public DeedType getType() {
+        return type;
+    }
+
+
 
     public boolean isComplete() {
         return complete;
@@ -56,5 +87,11 @@ public class Task {
     }
 
 
+    public void save(){
+        String sql = String.format("INSERT INTO deeds (title, date, details, priority, type, complete) VALUES ('%s', '%s', '%s', '%s', '%s', '%i')", this.title, this.getDate(), this.details, this.getPriority().getName(), this.getType().getName(), this.isComplete());
+        this.id = SqlRunner.executeUpdate(sql);
+        SqlRunner.closeConnection();
 
+    }
+    
 }
